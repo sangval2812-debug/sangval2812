@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>sapexinfo · Guía de Apex Legends</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e7e9e4;--surface:#f4f5f1;--ink:#14213d;--muted:#51597a;--ring:#ff5a1f;--teal:#0f8b8d;--line:#c5c9c0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10162a;--surface:#182040;--ink:#eceff7;--muted:#a3abc7;--ring:#ff7a45;--teal:#3cc4c6;--line:#2c3764}}
+:root[data-theme="dark"]{--bg:#10162a;--surface:#182040;--ink:#eceff7;--muted:#a3abc7;--ring:#ff7a45;--teal:#3cc4c6;--line:#2c3764}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.6 "Work Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;line-height:.95;margin:0;letter-spacing:.01em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ring);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;flex-wrap:wrap}
+.logo{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;font-size:1.9rem;text-decoration:none}
+.logo b{color:var(--ring)}
+nav a{margin-left:20px;text-decoration:none;font-weight:500;font-size:.95rem}
+nav a:hover{color:var(--ring)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:36px 0 64px}
+.hero h1{font-size:clamp(3.2rem,9vw,6.4rem);text-transform:none}
+.hero p{max-width:46ch;color:var(--muted);margin:20px 0 28px}
+.btn{display:inline-block;background:var(--ink);color:var(--bg);padding:13px 22px;font-weight:600;text-decoration:none;border-radius:4px}
+.btn:hover{background:var(--ring);color:#fff}
+.btn.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);margin-left:10px}
+.btn.alt:hover{border-color:var(--ring);color:var(--ring);background:transparent}
+.ringbox{aspect-ratio:1;width:100%;max-width:420px;justify-self:center}
+.ringbox svg{width:100%;height:100%;display:block}
+.zone{fill:none;stroke:var(--line);stroke-width:2}
+.safe{fill:none;stroke:var(--ring);stroke-width:5;transform-origin:200px 200px;animation:close 7s cubic-bezier(.6,0,.3,1) forwards}
+.stormfill{fill:var(--ring);opacity:.1}
+@keyframes close{from{transform:scale(1)}to{transform:scale(.42)}}
+@media (prefers-reduced-motion:reduce){.safe{animation:none;transform:scale(.42)}}
+.ringlbl{font:600 13px "Work Sans",sans-serif;fill:var(--muted)}
+section{padding:56px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(2.2rem,5vw,3.4rem);margin-bottom:12px}
+.lead{color:var(--muted);max-width:60ch;margin:0 0 28px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.tabs button{font:500 .95rem "Work Sans",sans-serif;color:var(--ink);background:transparent;border:2px solid var(--line);padding:8px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.legend{background:var(--surface);padding:18px;border-left:6px solid var(--ring)}
+.legend[data-c="Reconocimiento"]{border-color:var(--teal)}
+.legend[data-c="Apoyo"]{border-color:#7a5cff}
+.legend[data-c="Controlador"]{border-color:#c9a400}
+.legend[data-c="Escaramuzador"]{border-color:#e0457b}
+.legend h3{font-size:1.9rem}
+.legend small{color:var(--muted);font-weight:500}
+.legend p{margin:8px 0 0;font-size:.95rem}
+.maps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.map{background:var(--surface);padding:20px}
+.map h3{font-size:1.6rem;margin-bottom:6px}
+.map p{margin:0;font-size:.95rem;color:var(--muted)}
+.tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px}
+.tips h3{font-size:1.5rem;margin-bottom:6px;color:var(--ring)}
+.tips p{margin:0}
+footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+@media (max-width:760px){.hero{grid-template-columns:1fr}nav a{margin:0 16px 0 0}.btn.alt{margin:10px 0 0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="logo" href="#inicio">s<b>apex</b>info</a>
+  <nav aria-label="Principal"><a href="#leyendas">Leyendas</a><a href="#mapas">Mapas</a><a href="#consejos">Consejos</a></nav>
+</header>
+
+<main id="inicio">
+<div class="hero">
+  <div>
+    <h1>Tu guía para sobrevivir al último círculo.</h1>
+    <p>sapexinfo reúne lo esencial de Apex Legends: qué leyenda elegir, cómo moverte por cada mapa y qué hacer cuando el anillo empieza a cerrarse.</p>
+    <a class="btn" href="#leyendas">Elegir mi leyenda</a><a class="btn alt" href="#consejos">Ver consejos</a>
+  </div>
+  <div class="ringbox" role="img" aria-label="Ilustración de la zona segura cerrándose sobre un mapa">
+    <svg viewBox="0 0 400 400">
+      <circle class="stormfill" cx="200" cy="200" r="190"/>
+      <circle class="zone" cx="200" cy="200" r="190"/>
+      <circle class="zone" cx="200" cy="200" r="120"/>
+      <circle class="zone" cx="200" cy="200" r="50"/>
+      <circle class="safe" cx="200" cy="200" r="190"/>
+      <text class="ringlbl" x="200" y="205" text-anchor="middle">Zona final</text>
+    </svg>
+  </div>
+</div>
+
+<section id="leyendas">
+  <h2>Leyendas</h2>
+  <p class="lead">Cada leyenda pertenece a una clase que define su papel en el escuadrón. Filtra por clase y elige la que encaje con tu forma de jugar.</p>
+  <div class="tabs" id="tabs" role="group" aria-label="Filtrar por clase"></div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section id="mapas">
+  <h2>Mapas</h2>
+  <p class="lead">Conocer el terreno vale más que una buena puntería. Estos son algunos de los mapas de batalla real.</p>
+  <div class="maps">
+    <div class="map"><h3>Cañón del Rey</h3><p>El mapa original de 2019. Zonas abiertas, cañones y edificios muy reconocibles.</p></div>
+    <div class="map"><h3>Borde del Mundo</h3><p>Terreno nevado, trenes en movimiento y zonas de lava que cambian las rotaciones.</p></div>
+    <div class="map"><h3>Olympus</h3><p>Una ciudad flotante con tirolinas, torres y combates verticales.</p></div>
+    <div class="map"><h3>Storm Point</h3><p>Una isla con puntos de interés muy separados y mucha movilidad.</p></div>
+  </div>
+</section>
+
+<section id="consejos">
+  <h2>Consejos para empezar</h2>
+  <div class="tips">
+    <div><h3>Juega siempre en equipo</h3><p>Tu escuadrón es de tres jugadores. Avisa con pings, comparte munición y no te separes demasiado.</p></div>
+    <div><h3>Elige bien dónde aterrizas</h3><p>Los puntos con mucho botín atraen más equipos. Si empiezas, prueba zonas más tranquilas.</p></div>
+    <div><h3>Mira el anillo</h3><p>Planifica tu ruta hacia la zona segura antes de que el círculo se cierre y busca coberturas.</p></div>
+    <div><h3>Practica el movimiento</h3><p>Deslizarte, saltar y usar las habilidades de tu leyenda marca la diferencia en un tiroteo.</p></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p><strong>sapexinfo</strong> es un sitio de fans, no oficial. Apex Legends es una marca de Electronic Arts y Respawn Entertainment. Los datos del juego pueden cambiar con cada temporada: revisa las notas oficiales del parche.</p>
+</footer>
+</div>
+
+<script>
+const legends=[
+["Bangalore","Asalto","Soldado veterana con humo y munición para avanzar bajo fuego."],
+["Fuse","Asalto","Experto en explosivos que despeja posiciones con granadas."],
+["Wraith","Escaramuzador","Rápida y escurridiza, ideal para huir o flanquear."],
+["Octane","Escaramuzador","Muy veloz, con almohadilla de salto para ganar altura."],
+["Pathfinder","Escaramuzador","Robot con gancho para llegar a lugares inaccesibles."],
+["Bloodhound","Reconocimiento","Rastrea enemigos y revela su posición."],
+["Crypto","Reconocimiento","Controla el campo con su dron de vigilancia."],
+["Vantage","Reconocimiento","Francotiradora con gran visión a distancia."],
+["Lifeline","Apoyo","Sanadora con un dron que cura a su equipo."],
+["Gibraltar","Apoyo","Resistente, protege con su escudo y refuerza a los compañeros."],
+["Mirage","Apoyo","Maestro del engaño con señuelos para confundir."],
+["Caustic","Controlador","Ocupa zonas con gas tóxico que castiga a los enemigos."],
+["Wattson","Controlador","Fortifica posiciones con vallas eléctricas."],
+["Rampart","Controlador","Construye cobertura y usa una ametralladora fija."]
+];
+const tabs=document.getElementById('tabs'),grid=document.getElementById('grid');
+const classes=["Todas",...new Set(legends.map(l=>l[1]))];
+function render(c){
+  grid.innerHTML=legends.filter(l=>c==="Todas"||l[1]===c).map(l=>
+    `<article class="legend" data-c="${l[1]}"><h3>${l[0]}</h3><small>${l[1]}</small><p>${l[2]}</p></article>`).join('');
+  [...tabs.children].forEach(b=>b.setAttribute('aria-pressed',b.textContent===c));
+}
+classes.forEach(c=>{const b=document.createElement('button');b.type='button';b.textContent=c;b.onclick=()=>render(c);tabs.appendChild(b)});
+render("Todas");
+</script>
+</body>
+</html>
